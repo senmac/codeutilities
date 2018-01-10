@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+	<title>JavaScript And JSON</title>
+</head>
+<ul id="mylist">
+</ul>
+<body>
+<script>
+/* Javascript code to loop throught JSON object*/
+var info = {
+"full_name" : "Sen NAdukkamoottil",
+"title" : "Frontend developer",
+"links" : {
+    "blog"     : "http://myblog.com",
+    "facebook" : "http://facebook.com/sen.madukkamoottil",
+		"website"  : "http://www.lensuponatime.com"
+	}
+};
+var list = document.getElementById("mylist");
+var linkString = "";
+for (key in info.links) {
+	linkString += "<li><a href='"+info.links[key]+"'>"+key+"</a></li>"
+}
+list.innerHTML = linkString;
+</script>
+</body>
+</html>
