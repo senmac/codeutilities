@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- 
+    I have an HTML table with five cells in it. Each cell has a button and a field. 
+    You do not have control over the HTML or naming conventions used for IDs, etc. 
+    Write an event handler that can be applied to each button which will call a function and write the 
+    result of that function to the field that is in the cell of the button that was clicked. 
+    Do not iterate over the cells of the table.
+-->
+<body>
+    <table>
+        <tr>
+            <td>
+                <button>1</button>
+            </td>
+            <td>
+                <button>2</button>
+            </td>
+            <td>
+                <button>3</button>
+            </td>
+            <td>
+                <button>4</button>
+            </td>
+            <td>
+                <button>5</button>
+            </td>
+        </tr>
+    </table>
+</body>
+<script>
+    var buttonArray = document.querySelectorAll("button");
+    console.log(buttonArray);
+    for(i = 0; i < buttonArray.length; i++){
+        buttonArray[i].addEventListener("click", function(){
+             var spanNode = document.createElement("span");
+             var spanTextnode = document.createTextNode("Clicked");
+             spanNode.appendChild(spanTextnode)
+            this.parentNode.appendChild(spanNode);
+        })
+    }
+</script>
+</html>
