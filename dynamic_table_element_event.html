@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--Event delegation
+    Attach events to dynamically created buttons in table
+    -->
+</head>
+
+<body>
+    <table id="content">
+    </table>
+</body>
+<script>
+    var tableContent = document.querySelector("table");
+    for (var i = 0; i <= 4; i++) {
+
+        var buttonNode = document.createElement("button");
+        var buttonText = document.createTextNode("Button"+i);
+        
+        buttonNode.appendChild(buttonText);
+        buttonNode.setAttribute("id", "button"+i);
+
+        var rowNode = document.createElement("tr");
+        var colNode = document.createElement("td");
+
+        colNode.appendChild(buttonNode);
+        rowNode.appendChild(colNode);
+        tableContent.appendChild(rowNode);
+    }
+
+    tableContent.addEventListener("click", function(event){
+        alert(event.target.id);
+    })
+
+</script>
+
+</html>
