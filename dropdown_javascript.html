@@ -78,4 +78,85 @@
         dropdown.add(newOptionNode);
     }
 </script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style ="text/css">
+        li {
+            list-style-type: none;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: aqua;
+        }
+        ul {
+            border: solid 1px black; 
+            width: 100px;
+            padding: 0px;
+            position: absolute;
+        } 
+
+        #dropdown {
+            width: 100px;
+        }
+    </style>
+    <!--
+        Javascript select box with Div and ul <li>
+        -->
+</head>
+<body>
+    <div>
+        Main heading
+    </div>
+    <div>Subheading</div>
+    <input type="text" id="selected">
+    <div id="dropdown_div">
+        <select id="dropdown">
+            <option id="0">Select one</option>
+        </select>
+    </div>
+    <div>
+        <ul id="dropdown_options">
+            <li id="item1">Item1</li>
+            <li id="item2">Item2</li>
+            <li id="item3">Item3</li>
+            <li id="item4">Item4</li>
+        </ul>
+
+    </div>
+    <div>subheading</div>
+</body>
+<script text="text/javascript">
+    var dropdownOptions = document.getElementById("dropdown_options");
+    dropdownOptions.style.display = "none";
+
+    var selectValue = document.getElementById("selected");
+
+    var dropdown = document.getElementById("dropdown");
+    dropdown.addEventListener("click", function(){
+        dropdownOptions.style.display = "block";
+    });
+
+    dropdownOptions.addEventListener("click", function(event){
+        dropdownOptions.style.display = "none";
+        addOption(event.target.innerHTML);
+    });
+
+    function addOption(newOption){
+        dropdown.remove("option");
+
+        var newOptionNode = document.createElement("option");
+        var textNode = document.createTextNode(newOption);
+        newOptionNode.id = newOption;
+        newOptionNode.appendChild(textNode);
+
+        dropdown.add(newOptionNode);
+    }
+</script>
 </html>
